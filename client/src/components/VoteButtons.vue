@@ -6,6 +6,7 @@
       :id="emoticon.name"
       :value="emoticon.name"
       :disabled="isDisable"
+      :class="{ active: emoticonClicked === emoticon.name }"
       class="btn-emoji"
       v-html="emoticon.charCode"
       @click="vote"
@@ -37,14 +38,16 @@ export default {
         },
       ],
       isDisable: false,
+      emoticonClicked: "",
     };
   },
   methods: {
     vote(event) {
+      let voted = event.target.value;
       this.isDisable = true;
+      this.emoticonClicked = voted;
       let keyStorage = moment().format("YYYYMMDD hhmmss");
       let created_at = moment().format("YYYY-MM-DD hh:mm:ss");
-      let voted = event.target.value;
       let data = {
         vote: voted,
         created_at,
