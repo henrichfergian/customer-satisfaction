@@ -5,6 +5,7 @@
       :key="index"
       :id="emoticon.name"
       :value="emoticon.name"
+      :disabled="isDisable"
       class="btn-emoji"
       v-html="emoticon.charCode"
       @click="vote"
@@ -35,10 +36,12 @@ export default {
           charCode: "&#128512;",
         },
       ],
+      isDisable: false,
     };
   },
   methods: {
     vote(event) {
+      this.isDisable = true;
       let keyStorage = moment().format("YYYYMMDD hhmmss");
       let created_at = moment().format("YYYY-MM-DD hh:mm:ss");
       let voted = event.target.value;
