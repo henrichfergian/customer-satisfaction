@@ -1,17 +1,13 @@
 <template>
   <div class="buttons">
-    <!-- <button
-      v-for="(emoticon, index) in emoticons"
-      :key="index"
-      :id="emoticon"
-      class="btn-emoticon"
-    ></button> -->
     <button
       v-for="(emoticon, index) in emoticons"
       :key="index"
       :id="emoticon.name"
+      :value="emoticon.name"
       class="btn-emoji"
       v-html="emoticon.charCode"
+      @click="vote"
     ></button>
   </div>
 </template>
@@ -28,11 +24,10 @@ export default {
       emoticons: [
         {
           name: "very-bad",
-          charCode: "&#128545;",
-          // charCode: "&#129324;",
+          charCode: "&#128546;",
         },
         {
-          name: "Ok",
+          name: "ok",
           charCode: "&#128528;",
         },
         {
@@ -41,6 +36,12 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    vote(event) {
+      let voted = event.target.value;
+      localStorage.setItem("vote", voted);
+    },
   },
 };
 </script>
@@ -57,12 +58,26 @@ export default {
   outline: none;
   cursor: pointer;
 }
-#very-bad:hover {
-  text-shadow: 5px 5px;
+.btn-emoji:hover {
+  text-shadow: 10px 10px 15px;
   background-position: 0px 0px;
-  color: cyan;
+  position: relative;
+  top: 10px;
+  left: 10px;
 }
-#very-bad:active {
+.btn-emoji:active {
   background-color: rgb(95, 153, 230);
+  position: relative;
+  top: 20px;
+  left: 20px;
+}
+#very-bad:hover {
+  color: rgb(255, 0, 13);
+}
+#ok:hover {
+  color: rgb(255, 123, 0);
+}
+#very-good:hover {
+  color: rgb(0, 255, 0);
 }
 </style>

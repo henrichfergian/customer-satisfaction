@@ -32,9 +32,16 @@ export default {
   flex-wrap: wrap;
   align-items: center;
 }
+.give-your-vote {
+  font-size: 2.5rem;
+}
 .emoticons {
   display: flex;
   justify-content: center;
+}
+.finish {
+  position: absolute;
+  bottom: 20px;
 }
 
 section {
