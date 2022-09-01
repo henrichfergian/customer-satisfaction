@@ -29,16 +29,16 @@ export default {
     return {
       emoticons: [
         {
-          name: "very-bad",
-          charCode: "&#128546;",
+          name: "very-good",
+          charCode: "&#128512;",
         },
         {
           name: "ok",
           charCode: "&#128528;",
         },
         {
-          name: "very-good",
-          charCode: "&#128512;",
+          name: "very-bad",
+          charCode: "&#128546;",
         },
       ],
       emoticonClicked: "",
@@ -64,6 +64,12 @@ export default {
       return this.emoticonClicked.length !== 0;
     },
   },
+  mounted() {
+    console.log(this.emitProcessDone);
+    // this.$root.$on("emitProcessDone", (result) => {
+    //   console.log(result);
+    // });
+  },
 };
 </script>
 
@@ -79,26 +85,26 @@ export default {
   outline: none;
   cursor: pointer;
 }
-.btn-emoji:hover {
+.btn-emoji:hover:enabled {
   text-shadow: 10px 10px 15px;
   background-position: 0px 0px;
   position: relative;
   top: 10px;
   left: 10px;
 }
-.btn-emoji:active {
+.btn-emoji:active:enabled {
   background-color: rgb(95, 153, 230);
   position: relative;
   top: 20px;
   left: 20px;
 }
-#very-bad:hover {
+#very-bad:hover:enabled {
   color: rgb(255, 0, 13);
 }
-#ok:hover {
+#ok:hover:enabled {
   color: rgb(255, 123, 0);
 }
-#very-good:hover {
+#very-good:hover:enabled {
   color: rgb(0, 255, 0);
 }
 </style>

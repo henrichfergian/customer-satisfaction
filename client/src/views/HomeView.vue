@@ -23,6 +23,7 @@ import VoteButtons from "@/components/VoteButtons.vue";
 
 export default {
   name: "HomeView",
+  emits: ["emitProcessDone"],
   components: { VoteButtons },
   data: function () {
     return {
@@ -35,6 +36,7 @@ export default {
     },
     resetVote() {
       this.show = false;
+      this.$emit("emitProcessDone", "voteDone");
     },
   },
 };
