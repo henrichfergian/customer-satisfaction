@@ -39,12 +39,14 @@ export default {
   },
   methods: {
     vote(event) {
-      let timestamp = moment().format("MMMM Do YYYY, h:mm:ss a");
-      let voted = {
-        vote_name: event.target.value,
-        timestamp,
+      let keyStorage = moment().format("YYYYMMDD hhmmss");
+      let created_at = moment().format("YYYY-MM-DD hh:mm:ss");
+      let voted = event.target.value;
+      let data = {
+        vote: voted,
+        created_at,
       };
-      localStorage.setItem("vote", JSON.stringify(voted));
+      localStorage.setItem(keyStorage, JSON.stringify(data));
     },
   },
 };
