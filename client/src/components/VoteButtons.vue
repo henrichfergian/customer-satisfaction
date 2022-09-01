@@ -37,7 +37,6 @@ export default {
           charCode: "&#128512;",
         },
       ],
-      isDisable: false,
       emoticonClicked: "",
     };
   },
@@ -53,6 +52,11 @@ export default {
         created_at,
       };
       localStorage.setItem(keyStorage, JSON.stringify(data));
+    },
+  },
+  computed: {
+    isDisable: function () {
+      return this.emoticonClicked.length !== 0;
     },
   },
 };
