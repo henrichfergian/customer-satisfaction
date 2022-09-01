@@ -5,7 +5,7 @@
         Silahkan berikan penilaian anda terhadap pelayanan kami
       </h3>
       <div class="emoticons">
-        <VoteButtons :voteProp="vote" />
+        <VoteButtons :voteProp="vote" :processDoneProp="isProcessDone" />
       </div>
     </section>
     <section class="finish">
@@ -23,20 +23,21 @@ import VoteButtons from "@/components/VoteButtons.vue";
 
 export default {
   name: "HomeView",
-  emits: ["emitProcessDone"],
   components: { VoteButtons },
   data: function () {
     return {
       show: false,
+      isProcessDone: true,
     };
   },
   methods: {
     vote() {
       this.show = true;
+      this.isProcessDone = false;
     },
     resetVote() {
       this.show = false;
-      this.$emit("emitProcessDone", "voteDone");
+      this.isProcessDone = true;
     },
   },
 };
@@ -66,7 +67,7 @@ export default {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 1s ease;
+  transition: opacity 2.3s ease;
 }
 
 .fade-enter-from,
