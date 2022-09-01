@@ -5,11 +5,13 @@
         Silahkan berikan penilaian anda terhadap pelayanan kami
       </h3>
       <div class="emoticons">
-        <VoteButtons />
+        <VoteButtons :voteProp="vote" />
       </div>
     </section>
     <section class="finish">
-      <h4>Terima kasih telah memberikan penilaian anda</h4>
+      <transition name="fade">
+        <h4 v-if="show">Terima kasih telah memberikan penilaian anda</h4>
+      </transition>
     </section>
   </div>
 </template>
@@ -22,6 +24,16 @@ import VoteButtons from "@/components/VoteButtons.vue";
 export default {
   name: "HomeView",
   components: { VoteButtons },
+  data: function () {
+    return {
+      show: false,
+    };
+  },
+  methods: {
+    vote() {
+      this.show = true;
+    },
+  },
 };
 </script>
 

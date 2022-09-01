@@ -20,7 +20,11 @@ import moment from "moment";
 
 export default {
   name: "VoteButtons",
-  components: {},
+  props: {
+    voteProp: {
+      type: Function,
+    },
+  },
   data: function () {
     return {
       emoticons: [
@@ -52,6 +56,7 @@ export default {
         created_at,
       };
       localStorage.setItem(keyStorage, JSON.stringify(data));
+      this.voteProp();
     },
   },
   computed: {
