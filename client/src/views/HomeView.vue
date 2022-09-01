@@ -44,16 +44,29 @@ export default {
   flex-wrap: wrap;
   align-items: center;
 }
+
 .give-your-vote {
   font-size: 2.5rem;
 }
+
 .emoticons {
   display: flex;
   justify-content: center;
 }
+
 .finish {
   position: absolute;
   bottom: 20px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 section {
