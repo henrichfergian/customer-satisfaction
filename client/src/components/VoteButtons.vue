@@ -14,7 +14,7 @@
 
 <script>
 // @ is an alias to /src
-// import HelloWorld from "@/components/HelloWorld.vue";
+import moment from "moment";
 
 export default {
   name: "VoteButtons",
@@ -39,8 +39,12 @@ export default {
   },
   methods: {
     vote(event) {
-      let voted = event.target.value;
-      localStorage.setItem("vote", voted);
+      let timestamp = moment().format("MMMM Do YYYY, h:mm:ss a");
+      let voted = {
+        vote_name: event.target.value,
+        timestamp,
+      };
+      localStorage.setItem("vote", JSON.stringify(voted));
     },
   },
 };
