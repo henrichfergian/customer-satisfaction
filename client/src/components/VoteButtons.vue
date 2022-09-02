@@ -51,7 +51,6 @@ export default {
   methods: {
     vote(event) {
       let voted = event.target.value;
-      console.log(event);
 
       // untuk menentukan btn dengan class active & disable semua btn
       this.emoticonClicked = voted;
