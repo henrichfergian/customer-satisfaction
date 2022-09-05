@@ -1,17 +1,18 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "@/views/HomeView.vue";
-import PriorityView from "@/views/priorityView.vue";
+// import HomeView from "@/views/HomeView.vue";
+import PriorityView from "@/views/PriorityView.vue";
 
 const routes = [
   {
     path: "/",
     name: "home",
-    component: HomeView,
+    // component: HomeView,
+    component: PriorityView,
   },
   {
     path: "/priority",
     name: "priority-vote",
-    component: PriorityView,
+    component: () => import("@/views/PriorityView.vue"),
   },
   {
     path: "/about",

@@ -12,12 +12,21 @@
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: "PriorityView",
+  data: function () {
+    return {};
+  },
+};
+</script>
+
 <style>
 .container {
   display: flex;
   height: 100vh;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 }
 </style>
